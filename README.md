@@ -1,6 +1,7 @@
 
-## 🧩 Architecture Overview
+ 🧩 Architecture Overview
 
+            
                +------------------+
                |  API Gateway     |
                |  (Spring Cloud)  |
@@ -22,26 +23,11 @@
                                 | (Saga Manager)   |
                                 +------------------+
 
-            ⟳ Kafka Topics (event bus): transaction.initiated, wallet.debited, transaction.created
+             Kafka Topics (event bus): transaction.initiated, wallet.debited, transaction.created
 
 Folder Structure :
 
-src
-├── main
-│ ├── java/com/bookstoreproject
-│ │ ├── beans/ # All request and response payload DAOs (e.g., TransactionRequestRecord.java)
-│ │ ├── controller/ # REST and gRPC controllers
-│ │ ├── entity/ # JPA Entities
-│ │ ├── event/ # Kafka Event Payloads
-│ │ ├── exceptions/ # Custom exceptions and handlers
-│ │ ├── repository/ # JPA Repositories
-│ │ ├── service/ # Service Interfaces
-│ │ ├── serviceImpl/ # Service Implementations
-│ ├── proto/ # gRPC proto definitions
-│ └── resources/
-│ ├── application.yml # Spring Boot config
-│ ├── bootstrap.yml # (Optional) Spring Cloud configs
-│ └── ...
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
