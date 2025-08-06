@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.Bookstoreproject.proto;
+
+option java_package = "com.Bookstoreproject.proto.wallet";
+option java_multiple_files = true;
+
+service WalletService {
+  // Returns wallet balance for a given user ID
+  rpc GetUserWalletBalance(GetWalletBalanceRequest) returns (GetWalletBalanceResponse);
+  
+  // Creates a new wallet
+  rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse);
+  
+  // Updates wallet balance (credit/debit operations)
+  rpc UpdateWalletBalance(UpdateWalletBalanceRequest) returns (UpdateWalletBalanceResponse);
+}
+
+message GetWalletBalanceRequest {
+  string userId = 1;
+}
+
+message GetWalletBalanceResponse {
+  string walletId = 1;
+  string balance = 2; // using string to preserve BigDecimal precision
+  string status = 3; // e.g., "OK", "NOT_FOUND", "ERROR"
+  string error = 4;  // optional error description
+}
+
+message CreateWalletRequest {
+  string userId = 1;
+  string initialBalance = 2; // optional, defaults to 0
+}
+
+message CreateWalletResponse {
+  string walletId = 1;
+  string userId = 2;
+  string balance = 3;
+  string status = 4; // e.g., "OK", "ERROR"
+  string error = 5;  // optional error description
+}
+
+message UpdateWalletBalanceRequest {
+  string walletId = 1;
+  string amount = 2;
+  string operationType = 3; // "CREDIT" or "DEBIT"
+}
+
+message UpdateWalletBalanceResponse {
+  string walletId = 1;
+  string userId = 2;
+  string balance = 3;
+  string status = 4; // e.g., "OK", "INSUFFICIENT_BALANCE", "ERROR"
+  string error = 5;  // optional error description
+}
