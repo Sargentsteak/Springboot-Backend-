@@ -1,7 +1,7 @@
 
  🧩 Architecture Overview
 
-            
+   ```         
                +------------------+
                |  API Gateway     |
                |  (Spring Cloud)  |
@@ -22,7 +22,7 @@
                                 | Orchestrator     |
                                 | (Saga Manager)   |
                                 +------------------+
-
+```
              Kafka Topics (event bus): transaction.initiated, wallet.debited, transaction.created
 
 Folder Structure :
