@@ -44,7 +44,7 @@ Folder Structure :
 | Docker             | Containerization                          |
 | Docker Compose     | Multi-service orchestration               |
 | Elasticsearch      | Distributed search engine (Implemented    |
-                     |           Kibana)                         |
+|Analytics           |           Kibana)                         |
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
